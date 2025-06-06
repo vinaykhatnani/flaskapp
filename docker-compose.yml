@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask-upload-app
+    ports:
+      - "5000:5000"   # host:container
+    volumes:
+      - ./uploads:/data/uploads     # persist uploads on host
+      - ./templates:/app/templates  # mount templates folder
+    environment:
+      - FLASK_ENV=development
